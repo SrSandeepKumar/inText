@@ -1,0 +1,72 @@
+.scroll-content {
+  background: url("../img/sativa.png"); }
+
+.custom-header {
+  height: 4em;
+  float: left; }
+
+.title {
+  font-family: georgia;
+  font-size: 20px !important;
+  left: 1.5em !important;
+  /*right:40em !important;*/
+  overflow: visible !important; }
+
+.status {
+  font-family: georgia;
+  margin-top: 2em;
+  /*padding-left: 3.5em;*/
+  float: right;
+  color: white;
+  width: 100%; }
+
+.custom-arrow {
+  color: white;
+  font-size: 3em;
+  /*padding-left: 0.5em;*/ }
+
+.custom-plus {
+  z-index: 9999;
+  color: red;
+  font-size: 30px;
+  float: right;
+  padding-right: 1em;
+  padding-top: 1em;
+  height: 1em;
+  width: 2em; }
+
+.custom-gear {
+  z-index: 9999;
+  color: #FFA500;
+  font-size: 30px;
+  float: right;
+  padding-left: 2em;
+  padding-top: 3em;
+  height: 1em;
+  width: 2em; }
+
+.custom-send {
+  font-size: 2em;
+  color: white;
+  float: right;
+  padding-left: 0.5em; }
+
+.custom-emoji {
+  font-size: 2em;
+  width: 2em;
+  padding-left: 0.5em; }
+
+.custom-text {
+  width: 70%;
+  border-radius: 0.5em; }
+
+.dp {
+  /*padding-left: 1em;*/
+  border-radius: 70px;
+  border: 1px solid #fff;
+  width: 6em;
+  height: 6em;
+  margin: 2em 1em;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7); }
+
+/*# sourceMappingURL=chatScreen.css.map */

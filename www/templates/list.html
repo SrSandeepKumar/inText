@@ -1,0 +1,20 @@
+<ion-view title="Contacts.">
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <!-- <ion-pane> -->
+        <ion-content class="has-header">
+            <ion-list>
+                <ion-item ui-sref="app.list.chatPage" ng-repeat="list in playlists"> {{list.title}}. </ion-item>
+                <ion-nav-view animation="slide-left-right"></ion-nav-view>
+            </ion-list>
+            
+        </ion-content>
+    <!-- </ion-pane> -->
+
+
+</ion-view>
+
+
