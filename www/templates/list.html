@@ -5,12 +5,36 @@
     </ion-nav-buttons>
 
     <!-- <ion-pane> -->
-        <ion-content class="has-header">
-            <ion-list>
-                <ion-item ui-sref="app.list.chatPage" ng-repeat="list in playlists"> {{list.title}}. </ion-item>
+        <ion-content class="has-header" >
+           <ion-list >
+                <ion-item class="item item-avatar item-icon-right" ui-sref="app.list.chatPage" ng-repeat="list in playlists"> 
+               <!--  <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Silver_-_replace_this_image_male.svg/200px-Silver_-_replace_this_image_male.svg.png"/> -->
+                    <img ng-src="../img/profile/{{list.num}}.png"></img>
+                    {{list.title}}.
+                    <h4>{{list.status}}</h4>
+                    <!-- <i class="icon ion-chevron-right"></i> -->
+                 </ion-item>
+                
+                <ion-item class="item item-avatar">
+                    <img src="../img/sk.png"></img>
+                    {{name}}
+                </ion-item>
+
                 <ion-nav-view animation="slide-left-right"></ion-nav-view>
-            </ion-list>
-            
+            </ion-list> 
+        <!--ng-init="getContactList()"
+        <button class="button button-full button-positive" ng-click="getContactList()"> Get Contacts.</button>
+         <button class="button button-full button-positive" ng-click="createContact()"> Create Contacts.</button>
+        <button class="button button-full button-positive" ng-click="removeContact()"> remove Contacts.</button>-->
+<button class="button button-full button-positive" ng-click="getContactList()"> Get Contacts.</button>
+        <ion-list  ng-repeat="contact in contacts">
+            <ion-item ui-sref="app.list.chatPage" class="item item-avatar" ng-if="contact.displayName != null" >  
+                <img src="{{contact.photos[3].value}}" ></img> 
+                <h2>{{contact.displayName}}.</h2>
+                <p> hi </p>
+            </ion-item> 
+        </ion-list>
+
         </ion-content>
     <!-- </ion-pane> -->
 

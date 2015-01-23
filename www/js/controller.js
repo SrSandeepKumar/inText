@@ -1,71 +1,81 @@
-angular.module('starter.controllers', [])
+(function(){
+    
+    angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-  // Form data for the login modal
-  // $scope.loginData = {};
+    .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+        console.log("AppCtrl : hi from app ctrl");
+    })
 
-  // // Create the login modal that we will use later
-  // $ionicModal.fromTemplateUrl('templates/login.html', {
-  //   scope: $scope
-  // }).then(function(modal) {
-  //   $scope.modal = modal;
-  // });
+    .controller('chatScreenCtrl', function($scope) { 
+       console.log("chatScreenCtrl : hi from chat screen");
+    })
 
-  // // Triggered in the login modal to close it
-  // $scope.closeLogin = function() {
-  //   $scope.modal.hide();
-  // };
+    .controller('listScreenCtrl', ['$cordovaContacts', '$scope', function($cordovaContacts, $scope) {
+        console.log("lists controller : responding");
 
-  // // Open the login modal
-  // $scope.login = function() {
-  //   $scope.modal.show();
-  // };
+        $scope.getContactList = function() {
 
-  // // Perform the login action when the user submits the login form
-  // $scope.doLogin = function() {
-  //   console.log('Doing login', $scope.loginData);
+            console.log("responding = getContactList");
 
-  //   // Simulate a login delay. Remove this and replace with your login
-  //   // code if using a login system
-  //   $timeout(function() {
-  //     $scope.closeLogin();
-  //   }, 1000);
-  // };
+            var options = {};
+            options.filter = "";
+            options.multiple = true;
+            options.fields = ['displayName', 'name', 'phoneNumbers', 'emails', 'photos'];
+            
+            $cordovaContacts.find(options).then(function(result) {
+                console.log(result.photos);
+                $scope.contacts = result;
+            }, function(error) {
+                console.log("ERROR: " + error);
+            });
+        }
 
-  // conaole.log("hi from app ctrl");
-})
+        $scope.createContact = function() {
 
-.controller('chatScreenCtrl', function($scope) {
-	conaole.log("hi from chat screen");
-})
+            console.log("create contacts");
 
-.controller('listScreenCtrl', function($scope) {
-  // conaole.log("from list controller sandeep");
-  console.log("lists controller is responding");
-    $scope.name = "sandeep kumar";
-    $scope.internalFunction = externalFunction();
-    $scope.playlists = [
-        { title: 'Reggae', id: 1 },
-        { title: 'Chill', id: 2 },
-        { title: 'Dubstep', id: 3 },
-        { title: 'Indie', id: 4 },
-        { title: 'Rap', id: 5 },
-        { title: 'Cowbell', id: 6 }
-  ];
-})
+            $cordovaContacts.save({"displayName": "Steve Jobs"}).then(function(result) {
+                console.log(JSON.stringify(result));
+            }, function(error) {
+                console.log(error);
+            });
+        }
 
-.controller('chatPageCtrl', function($scope){
-  conaole.log("chat controller page is reponding");
-})
+        $scope.removeContact = function() {
+            $cordovaContacts.remove({"displayName": "Steve Jobs"}).then(function(result) {
+                console.log(JSON.stringify(result));
+            }, function(error) {
+                console.log(error);
+            });
+        }
 
-.controller('settingsCtrl', function($scope){
-    conaole.log("setings page is reponding");
-})
 
-.controller('profileCtrl', function($scope){
-    conaole.log("profile inside settings is responding");
-})
+        $scope.name = "sandeep kumar";
+        // $scope.internalFunction = externalFunction();
+        $scope.playlists = [
+            { title: 'Sandeep', id: 1, num: 8904565779, status:"Bright sunny day :-)"},
+            { title: 'Nithesh', id: 2, num: 9741600013, status:"Feeling good" },
+            { title: 'Haricharan', id: 3, num: 9739803593, status:"Being a doctor" },
+            { title: 'Pramod', id: 4, num: 9535187766, status:"Life feels awesome" },
+            { title: 'Prasad', id: 5, num: 9916579471, status:"With the great friend" },
+            { title: 'Sanjay', id: 6, num: 919035484841, status:"Rock on!!" }
+        ];
+    }])
 
-.controller('settingsScreenCtrl', function($scope){
-  conaole.log(" response from settings page");
-});
+    .controller('chatPageCtrl', function($scope){
+      console.log("chat controller : reponding");
+    })
+
+    .controller('settingsCtrl', function($scope){
+        console.log("setings : reponding");
+    })
+
+    .controller('profileCtrl', function($scope){
+        console.log("profile inside settings : responding");
+    })
+
+    .controller('settingsScreenCtrl', function($scope){
+      console.log("settings page : responding");
+    });
+
+})();
