@@ -76,6 +76,13 @@
 
     .controller('settingsScreenCtrl', function($scope){
       console.log("settings page : responding");
-    });
+    })
+
+    .controller('statusScreenCtrl', ['$scope', function($scope){
+        $scope.currentStatus = { checked : true };
+        $scope.statusChange = function(){
+            console.log("Status changed " + $scope.currentStatus.checked);
+        }
+    }]);
 
 })();

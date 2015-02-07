@@ -1,27 +1,23 @@
-<ion-view title="Status">
-
+<ion-view ng-controller="statusScreenCtrl" title="Status">
 	<ion-nav-buttons side="left">
-        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        <button  menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
-	
-	<ion-content class="has-header">
-		<!-- <h1>Status Settings</h1> -->
+    <ion-nav-buttons side="right">
+		<button side="right" class="button button-icon icon ion-edit"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-header"> 
 		<div class="card">
-			<div class="item item-divider item-toggle status">
-				Current Status
-					<label class="toggle toggle-balanced">
-						<input type="checkbox">
-						<div class="track">
-							<div class="handle"></div>
-						</div>
-					</label>
+			<div class="item item-divider item-toggle status"> Current Status
+				<label   class="toggle toggle-balanced">
+					<input ng-model="currentStatus.checked" ng-change="statusChange()" type="checkbox">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+				</label>
 			</div>
 			<div class="item item-text-wrap">
 				Awesome.
 			</div>
 		</div>
 	</ion-content>
-
-	
-
 </ion-view>
