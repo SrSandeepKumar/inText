@@ -1,10 +1,9 @@
 <ion-view ng-controller="statusScreenCtrl" title="Status">
-
 	<ion-nav-buttons side="left">
         <button  menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
-		<button side="right" class="button button-icon icon ion-edit adjust-size"></button>
+		<button side="right" class="button button-icon icon ion-edit adjust-size" ng-click="openModal()"></button>
 	</ion-nav-buttons>
 
 	<ion-content class="has-header" scroll= "false" > 

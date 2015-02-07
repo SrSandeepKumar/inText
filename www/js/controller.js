@@ -78,14 +78,40 @@
       console.log("settings page : responding");
     })
 
-    .controller('statusScreenCtrl', ['$scope', function($scope){
-        $scope.currentStatus = function(checkedIn){
-            
-        }
-        // { checked : true };
+    .controller('statusScreenCtrl', ['$scope','$ionicModal', function($scope, $ionicModal){
+        $scope.currentStatus = { 'checked' : true };
+
         $scope.statusChange = function(){
             console.log("Status changed " + $scope.currentStatus.checked);
-        }
+        };
+
+        $ionicModal.fromTemplateUrl('templates/statusModal.html', {
+            scope : $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal){
+            $scope.modal = modal;
+        });
+
+        $scope.openModal = function(){
+            $scope.modal.show();
+        };
+
+        $scope.closeModal = function(){
+            $scope.modal.hide();
+        };
+
+        $scope.$on('$destroy', function(){
+            $scope.modal.remove();
+        });
+
+        $scope.$on('model.hidden', function(){
+            //Execute action
+        });
+
+        $scope.$on('modal.removed', function(){
+            //Execute some action 
+        });
+
     }]);
 
 })();
