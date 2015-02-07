@@ -79,7 +79,10 @@
     })
 
     .controller('statusScreenCtrl', ['$scope', function($scope){
-        $scope.currentStatus = { checked : true };
+        $scope.currentStatus = function(checkedIn){
+            
+        }
+        // { checked : true };
         $scope.statusChange = function(){
             console.log("Status changed " + $scope.currentStatus.checked);
         }

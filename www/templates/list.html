@@ -26,7 +26,8 @@
         <button class="button button-full button-positive" ng-click="getContactList()"> Get Contacts.</button>
          <button class="button button-full button-positive" ng-click="createContact()"> Create Contacts.</button>
         <button class="button button-full button-positive" ng-click="removeContact()"> remove Contacts.</button>-->
-<button class="button button-full button-positive" ng-click="getContactList()"> Get Contacts.</button>
+        
+<!-- <button class="button button-full button-positive" ng-click="getContactList()"> Get Contacts.</button> -->
         <ion-list  ng-repeat="contact in contacts">
             <ion-item ui-sref="app.list.chatPage" class="item item-avatar" ng-if="contact.displayName != null" >  
                 <img src="{{contact.photos[3].value}}" ></img> 
