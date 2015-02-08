@@ -119,6 +119,15 @@ angular.module('starter', ['ionic','starter.controllers','ngCordova'])
         }    
     })
 
+    .state('app.settings.help.about', {
+        url: '/abput',
+        views: {
+          'menuContent@app': {
+                templateUrl: 'templates/settings/about.html'
+            }
+        }    
+    })
+
     .state('app.status', {
         url: '/status',
         views: {
