@@ -5,13 +5,21 @@
     </ion-nav-buttons>
 
 	<ion-content class="has-header">
-		<ul id="messages"></ul>
+		<!-- <ul id="messages"></ul>
 		<form action="">
 		    <input id="n" placeholder="type ur name"/>
 		    <input id="m" autocomplete="off" placeholder="type ur message" />
 		    <button> Send </button>
-		</form>
+		</form> -->
 	</ion-content>
+	<ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+		<label class="item-input-wrapper">
+			<input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+		</label>
+		<button class="button button-clear" ng-click="sendMessage()">
+			Send
+		</button>
+	</ion-footer-bar>
 
 </ion-view>
 
